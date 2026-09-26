@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const apiBase = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: apiBase ? `${apiBase}/api` : '/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -38,7 +40,9 @@ api.interceptors.response.use(
  */
 export const downloadFile = async (url: string, filename: string): Promise<void> => {
   const token = localStorage.getItem('smartlib_token');
-  const response = await axios.get(url.startsWith('/api') ? url : `/api${url}`, {
+  const targetPath = url.startsWith('/api') ? url : `/api${url}`;
+  const fullUrl = apiBase ? `${apiBase}${targetPath}` : targetPath;
+  const response = await axios.get(fullUrl, {
     responseType: 'blob',
     headers: token ? { Authorization: `Bearer ${token}` } : {},
   });
