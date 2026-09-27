@@ -1,5 +1,8 @@
 # 📚 Nexus Smart Library Management System
 
+> 🌐 **Live Production Link**: [https://frontend-orpin-sigma.vercel.app](https://frontend-orpin-sigma.vercel.app)  
+> *(Mobile, Tablet & Desktop all devices-la open aagum)*
+
 A production-grade, full-stack **Smart Library Management System** designed with a modern SaaS aesthetic, built with **React 18 + Vite + TypeScript + Tailwind CSS** on the frontend and **Python Flask + SQLAlchemy + JWT** on the backend.
 
 ---
